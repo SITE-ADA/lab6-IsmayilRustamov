@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class H2ConsoleConfig {
 
     @Bean
-    public ServletRegistrationBean<JakartaWebServlet> h2ServletRegistration() {
-        ServletRegistrationBean<JakartaWebServlet> registrationBean =
+    public ServletRegistrationBean<JakartaWebServlet> h2ConsoleServlet() {
+        ServletRegistrationBean<JakartaWebServlet> registration =
                 new ServletRegistrationBean<>(new JakartaWebServlet(), "/h2-console/*");
-        registrationBean.addInitParameter("-webAllowOthers", "false");
-        registrationBean.addInitParameter("-trace", "false");
-        return registrationBean;
+        registration.addInitParameter("-webAllowOthers", "true");
+        registration.addInitParameter("-trace", "false");
+        return registration;
     }
 }
